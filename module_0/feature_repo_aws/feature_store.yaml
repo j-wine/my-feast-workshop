@@ -1,7 +1,10 @@
 project: feast_demo_aws
 provider: aws
-registry: s3://feast-workshop-danny/registry.pb # TODO: Replace with your bucket
+registry: s3://feast-workshop-module0/registry.pb
 online_store: null
 offline_store:
   type: file
+flags:
+  alpha_features: true
+  on_demand_transforms: true
 entity_key_serialization_version: 2
