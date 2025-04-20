@@ -1,9 +1,17 @@
 project: feast_demo_aws
 provider: aws
 registry: s3://feast-workshop-module0/registry.pb
-online_store: null
+online_store:
+  type: dynamodb
+  region: us-west-2
 offline_store:
-  type: file
+  type: redshift
+  region: eu-north-1
+  cluster_id: default-workgroup  # default workgroup
+  database: dev                    # default db name
+  user: admin                      # Default Redshift user
+  s3_staging_location: s3://feast-redshift-module0/redshift
+  iam_role: arn:aws:iam::869935091814:role/service-role/AmazonRedshift-CommandsAccessRole-20250420T213707
 flags:
   alpha_features: true
   on_demand_transforms: true
