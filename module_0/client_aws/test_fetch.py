@@ -1,4 +1,7 @@
 from feast import FeatureStore
+from dotenv import load_dotenv
+
+load_dotenv()
 
 store = FeatureStore(repo_path=".")
 

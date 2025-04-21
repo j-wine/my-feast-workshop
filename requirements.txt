@@ -1,1 +1,7 @@
 feast[aws]==0.47.0
+boto3
+dotenv
+pyspark==3.5.0
+kafka-python==2.0.2
+pyspark==3.5.0
+

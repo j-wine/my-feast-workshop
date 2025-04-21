@@ -4,10 +4,10 @@ from features import *
 
 feature_service = FeatureService(
     name="model_v1",
-    features=[driver_hourly_stats_view[["conv_rate"]]],
+    features=[driver_hourly_stats_view_redshift[["conv_rate"]]],
     owner="test3@gmail.com",
 )
 
 feature_service_2 = FeatureService(
-    name="model_v2", features=[driver_hourly_stats_view], owner="test3@gmail.com",
+    name="model_v2", features=[driver_hourly_stats_view_redshift], owner="test3@gmail.com",
 )
