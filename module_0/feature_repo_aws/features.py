@@ -23,21 +23,21 @@ driver_hourly_stats_view_redshift = FeatureView(
     tags={"production": "True"},
     owner="test2@gmail.com",
 )
-@stream_feature_view(
-    entities=[driver],
-    ttl=timedelta(days=140),
-    mode="spark",  # apparently spark is currently the only support "mode"
-    schema=[
-        Field(name="sum", dtype=Int64),
-    ],
-    timestamp_field="event_timestamp",
-    online=True,
-    source=driver_stream_source
-)
-def driver_sum(df: DataFrame):
-    from pyspark.sql.functions import col
-    from pyspark.sql.types import LongType
-    df = df.withColumn("sum", (col("conv_rate") + col("acc_rate")).cast(LongType()))
-    return df.select("driver_id","event_timestamp", "sum")
-
-
+# @stream_feature_view(
+#     entities=[driver],
+#     ttl=timedelta(days=140),
+#     mode="spark",  # apparently spark is currently the only support "mode"
+#     schema=[
+#         Field(name="sum", dtype=Int64),
+#     ],
+#     timestamp_field="event_timestamp",
+#     online=True,
+#     source=driver_stream_source
+# )
+# def driver_sum(df: DataFrame):
+#     from pyspark.sql.functions import col
+#     from pyspark.sql.types import LongType
+#     df = df.withColumn("sum", (col("conv_rate") + col("acc_rate")).cast(LongType()))
+#     return df.select("driver_id","event_timestamp", "sum")
+#
+#

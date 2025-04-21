@@ -3,7 +3,7 @@ provider: aws
 registry: s3://feast-workshop-module0/registry.pb
 online_store:
   type: dynamodb
-  region: us-west-2
+  region: eu-north-1
 offline_store:
   type: redshift
   region: eu-north-1
@@ -12,7 +12,4 @@ offline_store:
   user: admin                      # Default Redshift user
   s3_staging_location: s3://feast-redshift-module0/redshift
   iam_role: arn:aws:iam::aws:policy/AmazonRedshiftAllCommandsFullAccess
-flags:
-  alpha_features: true
-  on_demand_transforms: true
 entity_key_serialization_version: 2

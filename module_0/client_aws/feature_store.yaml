@@ -3,7 +3,7 @@ provider: aws
 registry: s3://feast-workshop-module0/registry.pb
 online_store:
   type: dynamodb
-  region: us-west-2
+  region: eu-north-1
 offline_store:
   type: redshift
   region: eu-north-1
