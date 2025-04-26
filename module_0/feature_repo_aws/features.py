@@ -2,14 +2,12 @@ from feast import (
     FeatureView,
     Field,
 )
-from feast.stream_feature_view import stream_feature_view
-from feast.types import Float32, Int64
-from pyspark.sql import DataFrame
+from feast.types import Float32
 
 from data_sources import *
 from entities import *
 
-driver_hourly_stats_view_redshift = FeatureView(
+driver_hourly_stats_view_dynamodb= FeatureView(
     name="driver_hourly_stats",
     description="Hourly features",
     entities=[driver],
@@ -19,7 +17,7 @@ driver_hourly_stats_view_redshift = FeatureView(
         Field(name="acc_rate", dtype=Float32),
     ],
     online=True,
-    source=driver_stats_redshift,
+    source=generated_data_source,
     tags={"production": "True"},
     owner="test2@gmail.com",
 )
@@ -39,5 +37,3 @@ driver_hourly_stats_view_redshift = FeatureView(
 #     from pyspark.sql.types import LongType
 #     df = df.withColumn("sum", (col("conv_rate") + col("acc_rate")).cast(LongType()))
 #     return df.select("driver_id","event_timestamp", "sum")
-#
-#

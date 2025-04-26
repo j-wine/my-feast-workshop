@@ -5,11 +5,5 @@ online_store:
   type: dynamodb
   region: eu-north-1
 offline_store:
-  type: redshift
-  region: eu-north-1
-  cluster_id: default-workgroup  # default workgroup
-  database: dev                    # default db name
-  user: admin                      # Default Redshift user
-  s3_staging_location: s3://feast-redshift-module0/redshift
-  iam_role: arn:aws:iam::aws:policy/AmazonRedshiftAllCommandsFullAccess
+  type: file
 entity_key_serialization_version: 2
